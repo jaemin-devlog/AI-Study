@@ -38,6 +38,15 @@
 | 03 | [규제와 표준화](04-feature-engineering-and-regularization/06-규제와-표준화.md) |
 | 04 | [릿지와 라쏘 회귀](04-feature-engineering-and-regularization/07-릿지와-라쏘.md) |
 
-각 코드에 사용하는 데이터 준비 방법은 [실행 안내](실행-안내.md) 참고
+[그림 살펴보기](그림-살펴보기.md)에서 각 그림의 의미 확인
 
 [전체 공부 기록](../../README.md)
+
+## 예제 실행
+
+저장소 루트에서 필요한 라이브러리를 설치한 뒤 예제 파일을 실행. 데이터는 온라인에서 불러오며, 실습 자료가 있는 경우 `ML_NOTEBOOK_DIR` 환경 변수에 해당 폴더를 지정할 수 있음.
+
+```powershell
+python -m pip install -r topics/machine-learning/examples/필요-라이브러리.txt
+python topics/machine-learning/examples/01-생선-분류.py
+```
