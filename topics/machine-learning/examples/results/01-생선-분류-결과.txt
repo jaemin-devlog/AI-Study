@@ -1,0 +1,11 @@
+shape (49, 2) (49,)
+train accuracy 1.0 new [1.]
+k49 0.7142857142857143
+first error 18 0.9795918367346939
+stored samples (49, 2)
+ordered split 0.0
+shuffled score 1.0
+prediction [0. 0. 1. 0. 1. 1. 1. 0. 1. 1. 0. 1. 1. 0.]
+target [0. 0. 1. 0. 1. 1. 1. 0. 1. 1. 0. 1. 1. 0.]
+test counts random (array([0., 1.]), array([ 3, 10]))
+test counts stratified (array([0., 1.]), array([4, 9]))
