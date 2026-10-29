@@ -1,0 +1,32 @@
+flowchart TB
+    subgraph panel1["Before"]
+        direction LR
+        p1A["A"]
+        p1B["B"]
+        p1C["C (main)"]
+        p1D["D"]
+        p1E["E (docs/git-note)"]
+        p1A --> p1B
+        p1B --> p1C
+        p1B --> p1D
+        p1D --> p1E
+    end
+    subgraph panel2["After"]
+        direction LR
+        p2A["A"]
+        p2B["B"]
+        p2C["C (main)"]
+        p2D["D'"]
+        p2E["E' (docs/git-note)"]
+        p2A --> p2B
+        p2B --> p2C
+        p2C --> p2D
+        p2D --> p2E
+    end
+
+    classDef common fill:#64748b,stroke:#64748b,color:#ffffff
+    classDef main fill:#2563eb,stroke:#2563eb,color:#ffffff
+    classDef topic fill:#7c3aed,stroke:#7c3aed,color:#ffffff
+    class p1A,p1B,p2A,p2B common
+    class p1C,p2C main
+    class p1D,p1E,p2D,p2E topic

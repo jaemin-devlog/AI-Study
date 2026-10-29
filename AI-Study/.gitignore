@@ -1,0 +1,19 @@
+# 비공개 자료·수업 원본·압축 파일
+private/
+*.pdf
+*.zip
+
+# 개인 설정과 비밀값
+.env
+.env.*
+!.env.example
+
+# 실행 환경과 자동 생성 파일
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+node_modules/
+.DS_Store
+Thumbs.db
