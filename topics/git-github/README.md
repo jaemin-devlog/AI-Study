@@ -28,6 +28,11 @@
 | 03 | [Fork와 Pull Request](github/03-pull-request.md) |
 | 04 | [Tag와 Release](github/04-tags-and-releases.md) |
 
-[자주 쓰는 명령어](commands.md) · [참고 자료](references.md)
+## 보조 자료
+
+| 내용 | 설명 |
+| --- | --- |
+| [자주 쓰는 명령어](commands.md) | 작업별 Git 명령어 모음 |
+| [참고 자료](references.md) | Git과 GitHub 공식 문서 |
 
 [전체 공부 기록](../../README.md)
