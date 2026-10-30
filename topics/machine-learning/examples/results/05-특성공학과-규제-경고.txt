@@ -1,2 +1,0 @@
-ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.877870e+04, tolerance: 5.183e+02
-ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.297282e+04, tolerance: 5.183e+02

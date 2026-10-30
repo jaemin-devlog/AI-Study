@@ -9,7 +9,7 @@ AI 공부하면서 정리한 내용.
 | 주제 | 정리한 내용 |
 | --- | --- |
 | [Git과 GitHub](topics/git-github/README.md) | 버전 관리, 커밋, 브랜치, 병합, 원격 저장소, Pull Request |
-| [머신러닝 기초](topics/machine-learning/README.md) | 분류와 회귀, 데이터 분할과 표준화, 선형 및 다항 회귀, 특성 공학, 릿지와 라쏘, 로지스틱 회귀 |
+| [머신러닝 기초](topics/machine-learning/README.md) | 분류와 회귀, 데이터 분할과 표준화, 선형 및 다항 회귀, 특성 공학, 릿지와 라쏘, 로지스틱 회귀, 확률적 경사 하강법, 결정 트리 |
 
 ## 정리 방식
 
