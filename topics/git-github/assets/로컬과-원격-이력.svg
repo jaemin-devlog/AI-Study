@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">로컬과 원격의 이력 주고받기</title><desc id="desc">push는 로컬 커밋을 원격으로 보내고 fetch는 원격 이력을 가져오며 pull은 가져온 이력을 현재 브랜치에 통합한다.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#475569"/></marker></defs><rect width="1200" height="300" fill="white"/><g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" text-anchor="middle" fill="#14263b">
+<rect x="35" y="50" width="300" height="160" rx="16" fill="#e9f2ff" stroke="#497fb4" stroke-width="3"/><text x="185" y="100" font-size="25" font-weight="bold">내 컴퓨터</text><text x="185" y="140" font-size="19">로컬 main</text><text x="185" y="172" font-size="19">원격 추적 origin/main</text>
+<rect x="865" y="50" width="300" height="160" rx="16" fill="#e8f7ec" stroke="#49966b" stroke-width="3"/><text x="1015" y="100" font-size="25" font-weight="bold">원격 저장소</text><text x="1015" y="140" font-size="19">GitHub의 main</text><text x="1015" y="172" font-size="19">다른 사람과 이력 공유</text>
+<path d="M350 95 H850" stroke="#475569" stroke-width="4" marker-end="url(#a)"/><text x="600" y="80" font-size="20">push: 로컬 커밋 전송</text>
+<path d="M850 172 H350" stroke="#475569" stroke-width="4" marker-end="url(#a)"/><text x="600" y="157" font-size="20">fetch: 원격 이력 가져오기</text><text x="600" y="250" font-size="19">pull = 가져오기 + 현재 브랜치에 통합</text></g></svg>

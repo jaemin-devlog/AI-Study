@@ -1,5 +1,7 @@
 # 자주 쓰는 명령어
 
+실습용 저장소에서 현재 위치와 상태를 확인한 뒤 사용. `README.md`는 실습 대상 파일임.
+
 ## 확인하고 기록하기
 
 | 할 일 | 명령어 |
@@ -8,7 +10,7 @@
 | 짧게 상태 보기 | `git status -sb` |
 | 아직 add하지 않은 수정 | `git diff` |
 | 다음 commit에 들어갈 내용 | `git diff --staged` |
-| 파일을 stage에 올리기 | `git add topics/git-github/README.md` |
+| 파일을 stage에 올리기 | `git add README.md` |
 | commit하기 | `git commit -m "학습 메모 추가"` |
 | 이력 보기 | `git log --oneline --graph --all --decorate` |
 
@@ -34,14 +36,14 @@
 | main 전송·업스트림 설정 | `git push -u origin main` |
 | 연결된 브랜치로 push | `git push` |
 
-pull 전 현재 브랜치와 미커밋 작업 확인
+pull 전 현재 브랜치와 미커밋 작업을 확인함. 충돌이 발생하면 [충돌 해결](git/08-merge-and-conflict.md)과 [원격 변경 통합](github/02-clone-fetch-pull.md)을 참고함.
 
 ## 되돌리기
 
 | 상황 | 명령어와 결과 |
 | --- | --- |
-| add만 취소 | `git restore --staged topics/git-github/README.md` · 파일 수정은 남음. 첫 commit 이후 사용. |
-| add하지 않은 수정을 버림 | `git restore topics/git-github/README.md` · 작업 파일을 stage 내용으로 덮어씀. |
+| add만 취소 | `git restore --staged README.md`, 파일 수정은 남음. 첫 commit 이후 사용. |
+| add하지 않은 수정을 버림 | `git restore README.md`, 작업 파일을 stage 내용으로 덮어씀. |
 | 진행 중인 merge 취소 | `git merge --abort` |
 | 진행 중인 rebase 취소 | `git rebase --abort` |
 

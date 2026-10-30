@@ -1,63 +1,47 @@
 # Stash
 
-미커밋 변경 임시 보관. 나중에 다시 적용 가능.
+아직 완성하지 않은 코드를 수정하는 중에 다른 작업을 먼저 해야 할 수 있음. 지금 변경을 정식 버전으로 커밋하기에는 이르지만 그대로 두면 브랜치 전환이나 다른 작업에 방해가 될 수 있음. 이때 미커밋 변경을 잠시 보관하는 기능이 stash임.
 
-## 수정 중인 내용 보관
-
-기존 커밋 필요. 기본 보관 대상은 추적 파일의 수정 내용과 스테이지.
+## 변경을 임시 보관하기
 
 ```powershell
 git status
-git stash push -m "Git 노트 작성 중"
+git stash push -m "설정 변경 작업 중"
+git stash list
 ```
 
-- 보관한 변경을 작업 폴더에서 치우고 현재 커밋 상태로 복귀
-- 미추적 파일은 기본 보관 대상에서 제외
+`git status`로 보관할 상태를 확인한 뒤 stash를 만듦. 기본 stash는 추적 중인 파일의 수정, 삭제와 스테이지에 준비한 변경을 보관하고 작업 상태에서 치움. 이후 다시 꺼낼 수 있으며 일반 브랜치의 새 커밋을 만드는 것과 다름. stash는 보통 기존 커밋이 있는 저장소에서 사용함.
 
-미추적 파일 포함: `-u` 추가.
+새 파일을 아직 `add`하지 않았다면 미추적 파일이므로 기본 stash에 포함되지 않음. 그 파일도 함께 보관하려면 다음과 같이 `-u`를 사용함.
 
 ```powershell
-git stash push -u -m "새 노트까지 임시 보관"
+git stash push -u -m "새 파일까지 보관"
 ```
 
-`-u`에도 `.gitignore`로 무시한 파일은 미포함.
+`-u`는 미추적 파일을 포함하지만 `.gitignore` 등으로 무시한 파일은 포함하지 않음. 실행 후에도 `git status`에서 남은 변경이 무엇인지 확인해야 함. 비밀 파일이나 가상환경까지 무조건 이동시킨다고 생각하면 안 됨.
 
-## 보관한 내용 확인
+## 보관 목록과 내용 확인하기
 
 ```powershell
 git stash list
 git stash show -p "stash@{0}"
 ```
 
-`stash@{0}`은 가장 최근 항목. PowerShell에서는 따옴표로 감싸서 사용.
+여러 stash를 만들 수 있고 `stash@{0}`은 현재 목록에서 가장 최근 항목임. 새 항목을 만들거나 기존 항목을 지우면 번호가 바뀔 수 있으므로 사용 직전에 목록과 메시지를 다시 확인함. PowerShell에서는 `stash@{0}`을 따옴표로 감싸 전달함. `show -p`는 보관된 변경을 diff 형태로 살펴보는 명령임.
 
-## 다시 꺼내기
+## apply와 pop으로 작업 이어가기
 
-적용 전 현재 작업 정리.
-
-| 명령 | 적용 후 stash 목록 |
+| 명령 | 결과 |
 | --- | --- |
-| `git stash apply "stash@{0}"` | 항목 유지 |
-| `git stash pop "stash@{0}"` | 적용 성공 시 항목 삭제 |
+| `git stash apply "stash@{0}"` | 변경을 적용하고 stash 항목은 유지 |
+| `git stash pop "stash@{0}"` | 변경을 적용하고 성공하면 해당 항목을 목록에서 제거 |
 
-- 다른 브랜치에서도 적용 가능. 파일 내용에 따라 충돌 가능
-- 충돌 시 stash 항목 유지
-- 기존 스테이지 상태까지 복원하려면 `--index` 옵션 사용
+두 방법 모두 변경을 작업 공간에 다시 가져오는 것이며 커밋이 자동 생성되지는 않음. 계속 수정한 뒤 필요한 내용을 `add`하고 커밋해야 기록됨. 스테이지 상태까지 복원하려면 `--index`를 함께 사용할 수 있음.
 
-`pop` 충돌 해결: 파일 수정·저장 → `git add`로 해결 표시 → 결과 확인 → 해당 stash 삭제.
+다른 브랜치에서도 적용할 수 있지만 현재 파일과 보관된 수정이 서로 맞지 않으면 충돌할 수 있음. `pop`이 충돌하면 stash 항목은 자동으로 삭제되지 않음. 충돌 부분을 해결하고 `git add`로 해결 상태를 표시한 뒤 결과를 확인하고 필요할 때만 목록에서 해당 항목을 `git stash drop "stash@{0}"`으로 지움.
 
-```powershell
-git add topics/git-github/README.md
-git status
-```
-
-충돌 해결 결과와 삭제할 stash 번호 확인 후 `drop`.
-
-```powershell
-git stash list
-git stash drop "stash@{0}"
-```
+VS Code의 Source Control 메뉴에서도 stash 저장과 적용을 실행할 수 있음. stash는 미완성 변경을 잠시 보관하는 기능이고, 다음에 배울 브랜치는 커밋을 쌓는 작업 흐름을 분리하는 기능임.
 
 참고: [Git stash](https://git-scm.com/docs/git-stash)
 
-[목차로](../README.md)
+[이전](05-restore-reset-revert.md) | [다음](07-branch.md) | [목차로](../README.md)

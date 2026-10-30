@@ -1,71 +1,52 @@
-# Branch
+# 브랜치와 작업 흐름
 
-특정 커밋을 가리키는 이름. 작업별 이력 분리.
+안정적인 `main`을 유지하면서 모델 설정을 실험하거나 문서 작업을 따로 진행하고 싶을 수 있음. 프로젝트 폴더를 여러 개 복사하면 공통 파일이 어디서 바뀌었는지 관리하기 어려움. 브랜치는 같은 저장소 안에서 커밋의 흐름을 나눌 수 있게 해 줌.
 
-## 브랜치 분기
+## 브랜치는 무엇을 가리킬까?
 
-![B에서 갈라져 main은 C, docs/git-note는 E를 가리키는 브랜치 그림](../assets/branch.svg)
+브랜치는 특정 커밋을 가리키는 이름임. 새 브랜치를 만들면 현재 커밋을 가리키는 이름이 하나 더 생김. 두 브랜치는 그 시점까지의 이력을 공유하고, 이후 각 브랜치에서 새 커밋을 만들면 각 이름이 서로 다른 최신 커밋을 가리킬 수 있음.
 
-- `B`에서 분기한 뒤 각 브랜치에 커밋을 추가한 예시
-- `main`은 `C`, `docs/git-note`는 `E`를 참조
-- 원은 커밋, 화살표는 과거에서 새 커밋으로 이어지는 흐름
+![브랜치가 나뉜 이력](../assets/branch.svg)
 
-## 브랜치 생성·전환
+그림에서 두 작업은 B에서 나뉨. `main`은 C를, 작업 브랜치는 E를 가리킴. 원은 커밋이고 선은 이력이 이어진 방향임. 브랜치 이름의 `/`는 이름을 구분하기 위한 문자이며 별도의 작업 폴더를 만든다는 뜻은 아님.
 
-생성 기준은 현재 로컬 `main`. 미커밋 변경은 커밋 또는 stash로 정리.
+## 새 브랜치를 만들고 전환하기
+
+실습에서는 현재 변경을 커밋하거나 stash한 뒤 기준 브랜치로 이동함.
 
 ```powershell
 git switch main
 git switch -c docs/git-note
-```
-
-- 현재 커밋에서 `docs/git-note` 시작
-- 이 브랜치에서 커밋하면 `docs/git-note`의 위치만 이동
-- `main`은 기존 커밋 유지
-- 이름의 `/`는 구분용 문자. 실제 작업 폴더 생성 없음
-
-| 명령 | 하는 일 |
-| --- | --- |
-| `git branch docs/git-note` | 브랜치 생성 |
-| `git switch docs/git-note` | 기존 브랜치로 이동 |
-| `git switch -c docs/git-note` | 생성하면서 이동 |
-
-## 현재 브랜치 확인
-
-```powershell
 git branch
-git log --oneline --decorate -3
 ```
 
-- `*`가 붙은 이름: 현재 브랜치
-- HEAD: 보통 현재 브랜치를 가리키는 참조
-- `HEAD -> docs/git-note`: `docs/git-note`에서 작업 중
+`switch -c`는 현재 커밋에서 새 브랜치를 만들고 그 브랜치로 이동함. 이후 새 커밋을 만들면 `docs/git-note`의 위치가 앞으로 움직이고 `main`은 기존 위치를 유지함. `git branch`는 로컬 브랜치를 나열하고 현재 브랜치에 `*`를 표시함.
 
-## 다른 브랜치로 이동
+| 명령 | 동작 |
+| --- | --- |
+| `git branch docs/git-note` | 현재 커밋에서 이름만 생성 |
+| `git switch docs/git-note` | 이미 있는 브랜치로 이동 |
+| `git switch -c docs/git-note` | 생성하고 이동 |
 
-전환 전 파일 저장. 미커밋 변경은 커밋 또는 stash로 보관.
+VS Code의 왼쪽 아래 상태 표시줄에서도 현재 브랜치를 확인하고 전환할 수 있음. 새 브랜치를 만들기 전에 어느 커밋과 브랜치에서 출발하는지 확인해야 함.
 
-```powershell
-git switch main
-```
+## HEAD와 작업 파일의 관계
 
-- 파일 내용도 해당 브랜치의 커밋에 맞게 변경
-- 전환에 지장이 없는 미커밋 변경은 다른 브랜치로 따라갈 수 있음
-- 전환 중 로컬 변경을 잃게 되는 경우 Git이 중단
+HEAD는 현재 체크아웃한 위치를 나타내는 참조임. 일반적인 브랜치 작업에서는 HEAD가 현재 브랜치를 통해 그 브랜치의 최신 커밋을 가리킴. `git log --oneline --decorate -3`의 `HEAD -> docs/git-note`는 해당 브랜치에서 작업 중이라는 뜻임.
 
-## 끝난 브랜치 삭제
+`git switch main`으로 이동하면 작업 파일도 해당 브랜치의 상태에 맞게 바뀜. 다만 미커밋 변경은 브랜치에 자동으로 저장되는 것이 아님. 전환을 방해하지 않는 변경은 다른 브랜치로 따라갈 수 있고, 덮어쓰여 잃을 위험이 있으면 Git이 전환을 거부함. 전환 전에 상태를 확인하고 필요한 변경을 커밋하거나 stash함.
 
-`main`에 병합을 마친 뒤 불필요한 로컬 브랜치 삭제.
+## 작업을 끝낸 브랜치
+
+브랜치의 작업을 `main`에 병합한 뒤 더 필요 없다면 로컬 브랜치 이름을 삭제할 수 있음.
 
 ```powershell
 git switch main
 git branch -d docs/git-note
 ```
 
-- 현재 사용 중인 브랜치는 삭제 불가
-- `-d`가 병합 여부 때문에 거부하면 남길 작업부터 확인
-- 로컬 브랜치만 삭제. GitHub의 브랜치 삭제는 별도
+현재 사용 중인 브랜치는 삭제할 수 없음. `-d`가 병합되지 않았다며 거부하면 작업이 남아 있는지 먼저 확인함. 로컬 브랜치 삭제와 GitHub의 원격 브랜치 삭제는 별개임. 다음에는 나누어 쌓은 작업을 현재 브랜치로 합치는 merge를 살펴봄.
 
-참고: [Git branch](https://git-scm.com/docs/git-branch) · [Git switch](https://git-scm.com/docs/git-switch)
+참고: [Git branch](https://git-scm.com/docs/git-branch), [Git switch](https://git-scm.com/docs/git-switch)
 
-[목차로](../README.md)
+[이전](06-stash.md) | [다음](08-merge-and-conflict.md) | [목차로](../README.md)
