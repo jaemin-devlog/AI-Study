@@ -8,9 +8,7 @@ AI 학습 과정에서 정리한 개념과 실습 기록이다.
 | --- | --- |
 | [Git과 GitHub](topics/git-github/README.md) | 버전 기록, 브랜치와 병합, 원격 저장소, Pull Request |
 | [머신러닝](topics/machine-learning/README.md) | 분류와 회귀, 모델 평가, 앙상블, 비지도 학습 |
-| [딥러닝: 신경망 기초와 역전파](topics/deep-learning/01-신경망-기초/README.md) | 퍼셉트론, 손실과 기울기, 역전파 |
-| [딥러닝: 신경망 학습과 CNN](topics/deep-learning/10-신경망-학습과-CNN/README.md) | 최적화, 일반화, 합성곱 신경망 |
-| [딥러닝: 순차 데이터와 Transformer](topics/deep-learning/11-순차-데이터와-Transformer/README.md) | RNN, LSTM, GRU, 어텐션과 Transformer |
+| [딥러닝](topics/deep-learning/README.md) | 신경망 기초와 역전파, CNN, 순차 데이터와 Transformer |
 | [컴퓨터 비전](topics/computer-vision/README.md) | 이미지 데이터, 전처리, 에지 검출, CNN |
 
 ## 그림과 참고 자료
