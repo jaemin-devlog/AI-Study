@@ -38,4 +38,4 @@ KNN 분류와 회귀 → 선형 회귀와 규제 → 로지스틱 회귀와 경�
 | 구분 | 내용 |
 | --- | --- |
 | 그림 | [Git과 GitHub 그림 살펴보기](topics/git-github/그림-살펴보기.md), [머신러닝 그림 살펴보기](topics/machine-learning/그림-살펴보기.md), [딥러닝 그림](topics/deep-learning/README.md#그림과-참고-자료) |
-| 참고 자료 | [Git과 GitHub 참고 자료](topics/git-github/references.md), [머신러닝 주요 참고 자료](topics/machine-learning/README.md#주요-참고-자료) |
+| 참고 자료 | [Git과 GitHub 참고 자료](topics/git-github/references.md), [머신러닝 주요 참고 자료](topics/machine-learning/README.md#주요-참고-자료), [컴퓨터 비전 참고 자료](topics/computer-vision/README.md#원본-자료와-그림) |
