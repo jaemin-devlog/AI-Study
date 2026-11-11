@@ -1,6 +1,7 @@
 # 자주 쓰는 명령어
 
-실습용 저장소에서 현재 위치와 상태를 확인한 뒤 사용. `README.md`는 실습 대상 파일임.
+실습용 저장소에서 현재 위치와 상태를 확인한 뒤 사용.
+`README.md`는 실습 대상 파일임.
 
 ## 확인하고 기록하기
 
@@ -36,7 +37,8 @@
 | main 전송·업스트림 설정 | `git push -u origin main` |
 | 연결된 브랜치로 push | `git push` |
 
-pull 전 현재 브랜치와 미커밋 작업을 확인함. 충돌이 발생하면 [충돌 해결](git/08-merge-and-conflict.md)과 [원격 변경 통합](github/02-clone-fetch-pull.md)을 참고함.
+pull 전 현재 브랜치와 미커밋 작업을 확인함.
+충돌이 발생하면 [충돌 해결](git/08-merge-and-conflict.md)과 [원격 변경 통합](github/02-clone-fetch-pull.md)을 참고함.
 
 ## 되돌리기
 
