@@ -60,3 +60,7 @@ git merge --ff-only docs/git-note
 참고: [Git rebase](https://git-scm.com/docs/git-rebase), [Git merge](https://git-scm.com/docs/git-merge)
 
 [이전](08-merge-and-conflict.md) | [다음](10-ignore-and-files.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [제외할 파일과 파일 관리](10-ignore-and-files.md)

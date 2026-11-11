@@ -59,3 +59,7 @@ squash나 rebase 방식으로 병합하면 커밋 해시가 달라져 로컬의 
 참고: [PR 만들기](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request), [Fork](https://docs.github.com/en/pull-requests/reference/forks)
 
 [이전](02-clone-fetch-pull.md) | [다음](04-tags-and-releases.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Tag와 Release](04-tags-and-releases.md)

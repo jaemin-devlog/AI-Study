@@ -79,3 +79,7 @@ git merge --abort
 참고: [Git merge](https://git-scm.com/docs/git-merge)
 
 [이전](07-branch.md) | [다음](09-rebase.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Rebase](09-rebase.md)

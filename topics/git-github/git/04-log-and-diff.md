@@ -55,3 +55,7 @@ VS Code에서는 Source Control에서 현재 파일의 변경을 누르거나 �
 참고: [git log](https://git-scm.com/docs/git-log), [git diff](https://git-scm.com/docs/git-diff), [git show](https://git-scm.com/docs/git-show)
 
 [이전](03-stage-and-commit.md) | [다음](05-restore-reset-revert.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [변경 되돌리기](05-restore-reset-revert.md)

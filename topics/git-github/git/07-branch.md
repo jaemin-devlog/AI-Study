@@ -68,3 +68,7 @@ git branch -d docs/git-note
 참고: [Git branch](https://git-scm.com/docs/git-branch), [Git switch](https://git-scm.com/docs/git-switch)
 
 [이전](06-stash.md) | [다음](08-merge-and-conflict.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Merge와 충돌 해결](08-merge-and-conflict.md)

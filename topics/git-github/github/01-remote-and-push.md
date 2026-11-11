@@ -72,3 +72,7 @@ HTTPS로 GitHub에 접근할 때는 Credential Manager나 토큰 등의 인증�
 참고: [git remote](https://git-scm.com/docs/git-remote), [git push](https://git-scm.com/docs/git-push), [GitHub 인증](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)
 
 [이전](../git/10-ignore-and-files.md) | [다음](02-clone-fetch-pull.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Clone, Fetch, Pull](02-clone-fetch-pull.md)

@@ -70,3 +70,7 @@ VS Code Source Control의 Changes에서 `+`를 누르는 작업도 해당 변경
 참고: [git add](https://git-scm.com/docs/git-add), [git commit](https://git-scm.com/docs/git-commit), [git status](https://git-scm.com/docs/git-status)
 
 [이전](02-init-and-config.md) | [다음](04-log-and-diff.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [log와 diff](04-log-and-diff.md)

@@ -79,3 +79,7 @@ Python 파일을 실행할 때도 해당 환경의 Python 실행 파일을 사�
 참고: [git init](https://git-scm.com/docs/git-init), [Git 초기 설정](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup), [커밋 이메일 설정](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)
 
 [이전](01-git-basics.md) | [다음](03-stage-and-commit.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Stage와 Commit](03-stage-and-commit.md)

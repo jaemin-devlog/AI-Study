@@ -52,3 +52,7 @@ VS Code나 SourceTree에서 커밋 버튼을 눌러도 이력을 실제로 관�
 참고: [Git 기본 구조](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
 
 [다음](02-init-and-config.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [저장소 생성과 설정](02-init-and-config.md)

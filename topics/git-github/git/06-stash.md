@@ -61,3 +61,7 @@ stash는 미완성 변경을 잠시 보관하는 기능이고, 다음에 배울 
 참고: [Git stash](https://git-scm.com/docs/git-stash)
 
 [이전](05-restore-reset-revert.md) | [다음](07-branch.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [브랜치와 작업 흐름](07-branch.md)

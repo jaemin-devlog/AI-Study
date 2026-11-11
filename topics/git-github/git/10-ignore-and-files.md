@@ -67,3 +67,7 @@ Git은 빈 폴더 자체를 기록하지 않음.
 참고: [Git gitignore](https://git-scm.com/docs/gitignore), [Git rm](https://git-scm.com/docs/git-rm), [Git mv](https://git-scm.com/docs/git-mv)
 
 [이전](09-rebase.md) | [다음](../github/01-remote-and-push.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [원격 저장소와 Push](../github/01-remote-and-push.md)

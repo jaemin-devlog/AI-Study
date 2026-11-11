@@ -51,3 +51,7 @@ Semantic Versioning은 공개 API의 호환성을 기준으로 `MAJOR.MINOR.PATC
 참고: [git tag](https://git-scm.com/docs/git-tag), [GitHub Release](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases), [SemVer](https://semver.org/lang/ko/)
 
 [이전](03-pull-request.md) | [목차로](../README.md)
+
+---
+
+[학습 목차](../README.md)

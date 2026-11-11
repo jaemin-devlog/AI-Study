@@ -74,3 +74,7 @@ reset은 브랜치의 위치를 바꾸고 revert는 새로운 취소 커밋을 �
 참고: [git restore](https://git-scm.com/docs/git-restore), [git reset](https://git-scm.com/docs/git-reset), [git revert](https://git-scm.com/docs/git-revert)
 
 [이전](04-log-and-diff.md) | [다음](06-stash.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Stash](06-stash.md)

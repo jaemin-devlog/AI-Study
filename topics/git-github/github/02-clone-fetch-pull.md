@@ -74,3 +74,7 @@ rebase 중이라면 `git rebase --continue`를 사용함.
 참고: [git clone](https://git-scm.com/docs/git-clone), [git fetch](https://git-scm.com/docs/git-fetch), [git pull](https://git-scm.com/docs/git-pull)
 
 [이전](01-remote-and-push.md) | [다음](03-pull-request.md) | [목차로](../README.md)
+
+---
+
+다음 학습: [Fork와 Pull Request](03-pull-request.md)
