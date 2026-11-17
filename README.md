@@ -10,7 +10,7 @@ AI 학습 과정에서 정리한 개념과 실습 기록이다.
 | [머신러닝](topics/machine-learning/README.md) | 분류와 회귀, 모델 평가, 앙상블, 비지도 학습 |
 | [딥러닝](topics/deep-learning/README.md) | 신경망 기초와 역전파, CNN, 순차 데이터와 Transformer |
 | [컴퓨터 비전](topics/computer-vision/README.md) | 이미지 데이터, 전처리, 에지 검출, CNN |
-| [자연어 처리](topics/nlp/README.md) | 텍스트 전처리, 토큰화, 문서 분류, N-gram 언어모델 |
+| [NLP](topics/nlp/README.md) | 텍스트 전처리, 문서 분류, 언어모델, 임베딩, 서브워드 토큰화 |
 
 ## 그림과 참고 자료
 

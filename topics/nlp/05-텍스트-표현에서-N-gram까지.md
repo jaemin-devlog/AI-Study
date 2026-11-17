@@ -82,4 +82,4 @@ N-그램(N-gram)은 연속된 $N$개 단어를 묶고, 앞의 $N-1$개를 다음
 - 문서 분류는 학습 데이터에서 맞춘 변환기를 검증에도 적용해 입력을 동일한 기준으로 처리한다.
 - N-gram은 짧은 앞 문맥을 조건으로 다음 단어의 확률을 계산하며, 평활화는 관찰되지 않은 조합에도 확률을 배정한다.
 
-[학습 목차로 이동](README.md) | [관련 학습: 순차 데이터와 Transformer](../deep-learning/11-순차-데이터와-Transformer/README.md)
+[학습 목차로 이동](README.md) | [다음: 분산표현과 임베딩 조회](06-분산표현과-임베딩-조회.md) | [관련 학습: 순차 데이터와 Transformer](../deep-learning/11-순차-데이터와-Transformer/README.md)
