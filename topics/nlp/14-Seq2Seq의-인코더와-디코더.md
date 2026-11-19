@@ -85,4 +85,4 @@ flowchart LR
 - 디코더의 토큰별 손실을 통해 인코더와 디코더가 함께 학습된다.
 - 어텐션은 디코더가 인코더의 여러 시점을 참조하게 해 고정 크기 상태의 정보 병목을 완화한다.
 
-[학습 목차로 이동](README.md)
+[학습 목차](README.md) | [다음 글: Self-Attention과 QKV 생성](15-Self-Attention과-QKV-생성.md)
