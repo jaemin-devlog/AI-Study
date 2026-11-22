@@ -40,6 +40,7 @@
 | 16 | [스케일 내적 어텐션과 마스크](16-스케일-내적-어텐션과-마스크.md) | 내적과 스케일링, 행별 소프트맥스, 패딩 마스크와 Causal Mask |
 | 17 | [멀티헤드 어텐션과 위치 정보](17-멀티헤드-어텐션과-위치-정보.md) | 헤드별 계산과 출력 결합, 토큰 임베딩과 위치 인코딩 |
 | 18 | [Transformer 블록과 인코더-디코더 구조](18-Transformer-블록과-인코더-디코더.md) | FFN과 Add & Norm, Bidirectional Self-Attention, Causal Self-Attention, Cross-Attention |
+| 18-1 | [Transformer 입력부터 다음 토큰까지](18-1-Transformer-입력부터-다음-토큰까지.md) | 전체 구조도, Shift Right와 Causal Mask, 원문 참조와 다음 토큰 생성 |
 
 ## Day 5. BERT와 의미 기반 검색
 
