@@ -144,11 +144,11 @@ flowchart TD
 크기보다는 방향을 비교하며, 1은 같은 방향, 0은 직각, -1은 반대 방향을 뜻한다.
 
 $$
-\operatorname{sim}(a,b)=\frac{\sum_i a_i b_i}{\|a\|\|b\|}
+\mathrm{sim}(a,b)=\frac{\sum_i a_i b_i}{\lVert a\rVert\thinspace\lVert b\rVert}
 $$
 
 $a$와 $b$는 비교할 임베딩이고, 분자는 같은 위치의 값을 곱해 더한 내적(Dot Product)이다.  
-분모의 $\|a\|$와 $\|b\|$는 각 벡터의 크기로, 벡터 크기의 영향을 나누어 제거한다.
+분모의 $\lVert a\rVert$와 $\lVert b\rVert$는 각 벡터의 크기로, 벡터 크기의 영향을 나누어 제거한다.
 
 > [추가 설명] `a = [1, 0]`, `b = [1, 1]`이면 내적은 1, 두 크기는 1과 √2이므로 유사도는 `1 ÷ √2 ≈ 0.707`이다. `b = [2, 2]`로 크기만 늘려도 방향이 같아 유사도는 유지된다.
 

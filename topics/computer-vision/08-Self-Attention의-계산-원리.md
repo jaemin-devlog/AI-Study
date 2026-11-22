@@ -35,7 +35,7 @@ Q가 `[1, 2]`, K가 `[3, 4]`라면 `1×3 + 2×4 = 11`이다.
 이후 해당 비율로 각 V를 곱해 더한다.
 
 $$
-\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\mathrm{Attention}(Q,K,V)=\mathrm{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
 
 $QK^T$는 쿼리와 키의 점수이고 $d_k$는 키 벡터의 차원이다.  

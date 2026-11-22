@@ -38,7 +38,7 @@ BoW는 단어의 출현을 간단히 표현하지만, 단어 순서가 바뀌어
 
 $$
 \begin{aligned}
-\mathrm{IDF}(t) &= 1 + \ln\!\left(\frac{N+1}{\mathrm{DF}(t)+1}\right) \\
+\mathrm{IDF}(t) &= 1 + \ln\left(\frac{N+1}{\mathrm{DF}(t)+1}\right) \\
 \mathrm{TF\text{-}IDF}(t,d) &= \mathrm{TF}(t,d) \times \mathrm{IDF}(t)
 \end{aligned}
 $$

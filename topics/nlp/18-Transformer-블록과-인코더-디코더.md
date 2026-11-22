@@ -38,9 +38,9 @@ $x=[1,2,0,1]$, $F(x)=[0.5,-0.5,1,0]$이면 $x+F(x)=[1.5,1.5,1,1]$이다.
 $X$를 블록 입력, $H$를 첫 번째 정규화 결과, $Z$를 최종 출력이라고 하면 다음과 같다.
 
 $$
-H=\operatorname{LayerNorm}(X+\operatorname{MHA}(X)),
+H=\mathrm{LayerNorm}(X+\mathrm{MHA}(X)),
 \qquad
-Z=\operatorname{LayerNorm}(H+\operatorname{FFN}(H))
+Z=\mathrm{LayerNorm}(H+\mathrm{FFN}(H))
 $$
 
 첫 잔차 연결은 어텐션 입력 $X$를, 두 번째 잔차 연결은 FFN 입력 $H$를 더한다.

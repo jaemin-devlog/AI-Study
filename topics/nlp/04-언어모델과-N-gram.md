@@ -38,8 +38,8 @@ $P(w_i \mid w_{i-1})$에서 $w_i$는 예측할 단어이고 $w_{i-1}$은 바로 
 
 $$
 P(w_1,w_2,w_3)
-= P(w_1)\,P(w_2\mid w_1)\,P(w_3\mid w_1,w_2)
-\approx P(w_1)\,P(w_2\mid w_1)\,P(w_3\mid w_2)
+= P(w_1)\thinspace P(w_2\mid w_1)\thinspace P(w_3\mid w_1,w_2)
+\approx P(w_1)\thinspace P(w_2\mid w_1)\thinspace P(w_3\mid w_2)
 $$
 
 ![전체 앞 문맥을 쓰는 단어열 확률과 바로 앞 단어만 쓰는 Bigram 근사](assets/04-단어열-확률과-Bigram-근사.png)
