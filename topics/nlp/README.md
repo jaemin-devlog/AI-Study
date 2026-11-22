@@ -32,14 +32,14 @@
 | 14 | [Seq2Seq의 인코더와 디코더](14-Seq2Seq의-인코더와-디코더.md) | 상태 전달, 교사 강요, 추론, 정보 병목 |
 | 14-1 | [어텐션의 작동 원리](14-1-어텐션의-작동-원리.md) | 입력 위치별 점수와 가중치, 문맥 벡터, 다음 토큰 예측 |
 
-## Day 4. 자기 어텐션과 위치 정보
+## Day 4. Self-Attention과 위치 정보
 
 | 순서 | 학습 내용 | 핵심 내용 |
 | --- | --- | --- |
 | 15 | [Self-Attention과 QKV 생성](15-Self-Attention과-QKV-생성.md) | Query, Key, Value의 역할과 생성, 토큰별 가중합 |
-| 16 | [스케일 내적 어텐션과 마스크](16-스케일-내적-어텐션과-마스크.md) | 내적과 스케일링, 행별 소프트맥스, 패딩과 인과 마스크 |
+| 16 | [스케일 내적 어텐션과 마스크](16-스케일-내적-어텐션과-마스크.md) | 내적과 스케일링, 행별 소프트맥스, 패딩 마스크와 Causal Mask |
 | 17 | [멀티헤드 어텐션과 위치 정보](17-멀티헤드-어텐션과-위치-정보.md) | 헤드별 계산과 출력 결합, 토큰 임베딩과 위치 인코딩 |
-| 18 | [Transformer 블록과 인코더-디코더 구조](18-Transformer-블록과-인코더-디코더.md) | FFN과 Add & Norm, 교차 어텐션, BERT와 GPT 및 T5 |
+| 18 | [Transformer 블록과 인코더-디코더 구조](18-Transformer-블록과-인코더-디코더.md) | FFN과 Add & Norm, Bidirectional Self-Attention, Causal Self-Attention, Cross-Attention |
 
 ## Day 5. BERT와 의미 기반 검색
 

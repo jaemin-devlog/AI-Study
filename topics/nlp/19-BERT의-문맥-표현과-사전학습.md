@@ -9,13 +9,13 @@ Word2Vec의 <strong>정적 임베딩(Static Embedding)</strong>에서는 단어�
 
 <strong>문맥 기반 표현(Contextual Representation)</strong>은 토큰의 앞뒤에 놓인 정보를 반영해 토큰 벡터를 갱신한다.
 BERT(Bidirectional Encoder Representations from Transformers)는 트랜스포머 인코더(Transformer Encoder)만 사용한다.
-양방향 자기 어텐션(Bidirectional Self-Attention)을 통해 ‘먹었다’와 ‘탔다’ 같은 주변 토큰을 참고하면 같은 ‘배’도 문장마다 다른 최종 표현을 얻을 수 있다.
+<strong>Bidirectional Self-Attention</strong>으로 입력의 앞뒤 토큰을 모두 참조할 수 있으므로, ‘배’는 ‘먹었다’와 ‘탔다’ 같은 문맥에 따라 서로 다른 최종 표현을 얻는다.
 입력 임베딩은 출발점이고, 문맥을 반영한 벡터는 인코더를 통과한 결과다.
 
 ![같은 단어가 정적 임베딩에서는 같은 벡터를, BERT에서는 문맥별 벡터를 얻는 예](assets/19-정적-임베딩과-문맥-표현.webp)
 
 ELMo(Embeddings from Language Models)도 문맥 표현을 학습한 초기 모델이다.
-ELMo는 정방향과 역방향 LSTM 언어모델을 이용해 앞뒤 정보를 얻고, BERT는 인코더의 자기 어텐션으로 입력 위치들의 정보를 결합한다.
+ELMo는 정방향과 역방향 LSTM 언어모델을 이용해 앞뒤 정보를 얻고, BERT는 인코더의 Bidirectional Self-Attention으로 입력 위치들의 정보를 결합한다.
 
 ## 2. 원래 BERT의 사전학습 목표
 
@@ -72,7 +72,7 @@ NSP가 출력하는 것은 다음 문장의 텍스트가 아닌, 연결 여부�
 세 벡터는 토큰의 종류, 시퀀스 안의 위치, A와 B 중 소속 구간을 각각 나타낸다.
 원래 BERT의 위치 벡터는 학습 파라미터다. 세 임베딩의 합에 층 정규화(Layer Normalization)와 드롭아웃(Dropout)을 적용한 뒤 인코더에 전달한다.
 
-BERT Base의 모델 차원은 768이고 자기 어텐션 헤드는 12개다. 따라서 헤드 하나의 차원은 $768/12=64$다.
+BERT Base의 모델 차원은 768이고 Self-Attention 헤드는 12개다. 따라서 헤드 하나의 차원은 $768/12=64$다.
 순전파 신경망(Feed-Forward Network, FFN)은 특징 차원을 `768 → 3072 → 768`로 변환하고 중간에 GELU 활성화 함수를 쓴다.
 서로 다른 가중치를 가진 인코더 층 12개를 지나도 배치 하나에 위치 10개가 있을 때 출력 형태는 `(1, 10, 768)`이다.
 
@@ -115,7 +115,7 @@ SpanBERT는 연속된 토큰을 한꺼번에 가리는 <strong>구간 마스킹(
 
 ## 7. 핵심 정리
 
-- BERT는 양방향 자기 어텐션으로 각 토큰에 주변 문맥을 반영한다.
+- BERT는 Bidirectional Self-Attention으로 각 토큰에 앞뒤 문맥을 반영한다.
 - 토큰, 위치, 토큰 타입 임베딩을 더해 인코더 입력을 만든다.
 - MLM은 선택된 위치의 원래 토큰을, NSP는 두 구간이 이어졌는지를 예측한다.
 - 원래 BERT는 인코더를 공유하고 MLM과 NSP의 손실을 합쳐 사전학습한다.

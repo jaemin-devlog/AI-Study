@@ -4,7 +4,7 @@
 
 ## 1. 토큰 간 정보 결합과 토큰별 변환
 
-<strong>멀티헤드 어텐션(Multi-Head Attention, MHA)</strong>은 각 토큰이 다른 위치에서 관련 정보를 모아 자신의 표현을 갱신한다.
+<strong>Multi-Head Self-Attention</strong>은 같은 시퀀스에서 Query, Key, Value를 만들고, 여러 헤드의 결과를 결합해 각 토큰의 표현을 갱신한다.
 `나는 / 커피를 / 마신다`의 세 토큰을 각각 4차원으로 표현하면, 강의 예제의 어텐션 입출력은 모두 `(3, 4)`다.
 
 <strong>순전파 신경망(Feed-Forward Network, FFN)</strong>은 어텐션으로 얻은 토큰 표현을 비선형적으로 변환한다.
@@ -33,9 +33,10 @@ $x=[1,2,0,1]$, $F(x)=[0.5,-0.5,1,0]$이면 $x+F(x)=[1.5,1.5,1,1]$이다.
 
 ## 3. 인코더 블록의 계산 순서
 
-기본 트랜스포머의 인코더 블록(Encoder Block)은 **자기 어텐션 → 더하기와 정규화 → FFN → 더하기와 정규화** 순서로 계산한다.
+원래 Transformer의 인코더 블록은 **Multi-Head Self-Attention → Add & Norm → FFN → Add & Norm** 순서로 계산한다.
+인코더에서는 각 토큰이 같은 입력 시퀀스의 앞뒤 위치를 모두 참조할 수 있다. 이 방식을 **Bidirectional Self-Attention**이라 한다.
 <strong>더하기와 정규화(Add & Norm)</strong>는 해당 연산의 입력을 출력에 더하고 LayerNorm을 적용하는 단계다.
-$X$를 블록 입력, $H$를 첫 번째 정규화 결과, $Z$를 최종 출력이라고 하면 다음과 같다.
+아래 식에서 `MHA`는 인코더의 Multi-Head Self-Attention을 가리킨다. $X$는 블록 입력, $H$는 첫 번째 정규화 결과, $Z$는 최종 출력이다.
 
 $$
 H=\mathrm{LayerNorm}(X+\mathrm{MHA}(X)),
@@ -58,16 +59,17 @@ FFN 내부에서만 특징 차원이 8로 늘고, 블록의 입출력은 모두 
 
 디코더(Decoder)는 시작 토큰(Beginning of Sequence, BOS)부터 출력을 생성한다.
 생성 과정에서 `BOS` 다음에는 `I`, `BOS / I` 다음에는 `drink`를 예측한다.
-<strong>인과 자기 어텐션(Causal Self-Attention)</strong>은 출력 시퀀스에서 현재 위치와 그 이전 위치만 참고하게 한다.
-예를 들어 `I` 위치의 표현을 계산할 때 `BOS`와 `I`의 정보를 참고한다.
+<strong>Causal Self-Attention</strong>은 Causal Mask를 적용해 디코더 입력에서 현재 위치와 이전 위치만 참조하게 한다.
+예를 들어 `I` 위치의 표현은 `BOS`와 `I`를 참조한 결과이며, 다음 토큰 `drink`를 예측하는 데 쓰인다.
+원래 Transformer 논문의 구조도에서는 이 디코더 층을 **Masked Multi-Head Attention**으로 표기한다.
 
-![인코더 출력이 디코더의 교차 어텐션으로 전달되고 다음 토큰을 예측하는 전체 구조](assets/18-트랜스포머-전체-구조.png)
+![인코더 출력이 디코더의 Cross-Attention으로 전달되고 다음 토큰을 예측하는 전체 구조](assets/18-트랜스포머-전체-구조.png)
 
-### 4.1 교차 어텐션으로 원문 참고하기
+### 4.1 Cross-Attention으로 원문 참조하기
 
-<strong>교차 어텐션(Cross-Attention)</strong>은 디코더의 표현에서 Query를 만들고, 인코더의 토큰별 출력에서 Key와 Value를 만든다.
+<strong>Cross-Attention</strong>은 디코더의 표현에서 Query를 만들고, 인코더의 토큰별 출력에서 Key와 Value를 만든다. 원래 Transformer 논문에서는 이 연결을 **Encoder-Decoder Attention**이라고 부른다.
 예를 들어 `BOS / I`를 처리한 디코더가 `drink`를 예측할 때, 한국어 토큰 세 위치에서 현재 출력에 필요한 정보를 가져올 수 있다.
-기본 LSTM Seq2Seq에서 넘긴 것은 인코더의 마지막 은닉 상태와 셀 상태였다. 기본 트랜스포머에서는 인코더의 위치별 출력이 각 디코더 블록의 교차 어텐션에 사용된다.
+기본 LSTM Seq2Seq에서 넘긴 것은 인코더의 마지막 은닉 상태와 셀 상태였다. Transformer에서는 인코더의 위치별 출력이 각 디코더 블록의 Cross-Attention에 사용된다.
 
 | 계산 대상 | 예제의 형태 | 축의 의미 |
 | --- | --- | --- |
@@ -79,11 +81,11 @@ FFN 내부에서만 특징 차원이 8로 늘고, 블록의 입출력은 모두 
 | 헤드 결합 후 출력 | `(2, 4)` | 디코더 두 위치의 새 표현 |
 
 점수 행렬의 행과 열이 서로 다른 시퀀스에서 오므로 원문 길이와 출력 길이가 달라도 계산할 수 있다.
-교차 어텐션의 출력은 Query가 나온 디코더 위치에 대응한다.
+Cross-Attention의 출력은 Query가 나온 디코더 위치에 대응한다.
 
 ### 4.2 어휘별 점수에서 다음 토큰 결정하기
 
-기본 디코더 블록은 인과 자기 어텐션, 교차 어텐션, FFN을 차례로 적용하고 각 연산에 Add & Norm을 결합한다.
+원래 Transformer의 디코더 블록은 Causal Self-Attention, Cross-Attention, FFN을 차례로 적용하고 각 연산에 Add & Norm을 결합한다.
 마지막 디코더 블록의 표현을 선형층에 넣으면 어휘별 로짓(Logits)을 얻는다.
 이 점수의 소프트맥스(Softmax) 분포를 바탕으로 다음 토큰을 선택해 디코더 입력에 추가한다.
 예제에서는 `I → drink → coffee → EOS`로 이어지며 종료 토큰(End of Sequence, EOS)이 나오면 생성을 마친다.
@@ -91,8 +93,8 @@ FFN 내부에서만 특징 차원이 8로 늘고, 블록의 입출력은 모두 
 ```mermaid
 flowchart LR
     S["원문 토큰"] --> E["인코더 블록"] --> K["원문 위치별 Key와 Value"]
-    T["지금까지의 출력 토큰"] --> Q["인과 자기 어텐션과 Add & Norm"]
-    Q -->|"디코더 표현에서 Query 생성"| C["교차 어텐션"]
+    T["지금까지의 출력 토큰"] --> Q["Causal Self-Attention과 Add & Norm"]
+    Q -->|"디코더 표현에서 Query 생성"| C["Cross-Attention"]
     K --> C
     C --> N["Add & Norm"]
     N --> F["FFN과 Add & Norm"]
@@ -102,21 +104,21 @@ flowchart LR
 
 ## 5. 핵심 개념 비교
 
-| 구조 | 대표 모델 | 정보 참조 범위 | 대표 활용 |
+| 구조 | 대표 모델 | 어텐션 방식과 참조 범위 | 대표 활용 |
 | --- | --- | --- | --- |
-| 인코더 전용(Encoder-only) | BERT | 자기 어텐션에서 일반적으로 앞뒤 문맥을 함께 참고 | 문장 분류, 토큰 분류, 문맥 표현 |
-| 디코더 전용(Decoder-only) | GPT | 인과 자기 어텐션으로 현재까지의 토큰을 참고 | 다음 토큰 예측, 텍스트 생성 |
-| 인코더-디코더(Encoder-Decoder) | T5 | 인코더는 입력 문맥을 구성하고, 디코더는 앞선 출력과 인코더 표현을 참고 | 번역, 요약 |
+| 인코더 전용(Encoder-only) | BERT | **Bidirectional Self-Attention**으로 같은 입력의 앞뒤 토큰을 참조 | 문장 분류, 토큰 분류, 문맥 표현 |
+| 디코더 전용(Decoder-only) | GPT | **Causal Self-Attention**으로 현재 위치까지의 토큰을 참조 | 다음 토큰 예측, 텍스트 생성 |
+| 인코더-디코더(Encoder-Decoder) | T5 | 인코더는 **Bidirectional Self-Attention**으로 입력의 앞뒤 토큰을 참조한다. 디코더는 **Causal Self-Attention**으로 현재 위치까지의 출력 토큰을, **Cross-Attention**으로 인코더 출력을 참조한다. | 번역, 요약 |
 
 ![BERT와 GPT 및 T5가 사용하는 블록과 어텐션 비교](assets/18-모델-구조-비교.png)
 
 ## 6. 핵심 정리
 
-- 멀티헤드 어텐션은 토큰 간 정보를 모으고, FFN은 각 토큰의 표현을 개별적으로 변환한다.
+- 인코더의 Multi-Head Self-Attention은 같은 시퀀스의 정보를 모으고, FFN은 각 토큰의 표현을 개별적으로 변환한다.
 - 잔차 연결은 각 연산의 입력을 출력에 더하고, LayerNorm은 토큰 내부의 특징값을 정규화한다.
 - 인코더 블록을 쌓으면 원문의 각 토큰 위치에 대응하는 문맥 표현을 얻는다.
-- 디코더는 인과 자기 어텐션으로 이전 출력의 정보를 반영하고, 교차 어텐션으로 원문 정보를 가져온다.
-- 교차 어텐션의 Query는 디코더에서, Key와 Value는 인코더 출력에서 만들어진다.
+- 디코더의 Causal Self-Attention은 현재 위치까지의 토큰을 참조한다.
+- Cross-Attention의 Query는 디코더에서, Key와 Value는 인코더 출력에서 만들어진다.
 - BERT, GPT, T5는 사용하는 블록과 정보 참조 범위가 다른 세 가지 트랜스포머 구조를 대표한다.
 
 [이전 글: 멀티헤드 어텐션과 위치 정보](17-멀티헤드-어텐션과-위치-정보.md) | [학습 목차](README.md) | [다음 글: BERT의 문맥 표현과 사전학습](19-BERT의-문맥-표현과-사전학습.md)

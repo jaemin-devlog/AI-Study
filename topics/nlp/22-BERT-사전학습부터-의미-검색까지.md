@@ -5,7 +5,7 @@
 ## 1. 문맥 표현을 학습하는 단계
 
 <strong>정적 임베딩(Static Embedding)</strong>에서는 문장이 달라도 같은 토큰에 같은 벡터를 조회한다.
-BERT의 <strong>문맥 기반 표현(Contextual Representation)</strong>은 자기 어텐션으로 앞뒤 단서를 모아, ‘배를 먹었다’와 ‘배를 탔다’의 ‘배’를 서로 다른 문맥 속에서 표현한다.
+BERT는 Bidirectional Self-Attention으로 입력의 앞뒤 토큰을 참조해 <strong>문맥 기반 표현(Contextual Representation)</strong>을 만든다. ‘배를 먹었다’와 ‘배를 탔다’의 ‘배’는 서로 다른 벡터로 표현된다.
 이때 인코더에 넣는 벡터는 토큰, 위치, 토큰 타입 임베딩을 더한 결과이고, 인코더의 출력은 문맥을 반영해 갱신된 토큰별 벡터다.
 
 <strong>마스크 언어 모델링(Masked Language Modeling, MLM)</strong>에서는 선택한 위치의 원래 토큰을 정답으로 삼는다.
