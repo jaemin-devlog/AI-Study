@@ -27,7 +27,7 @@
 <path d="M 1070 156 H 1137" fill="none" stroke="#516a79" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
 <path d="M 1235 178 V 190 H 1105 V 199" fill="none" stroke="#516a79" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
 <rect x="935" y="201" width="340" height="46" rx="8" fill="#fff" stroke="#b9ceec" stroke-width="1.4"/>
-<text x="1105" y="231" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="20" font-weight="600" fill="#205bb2">Decoder Input IDs  ·  &lt;BOS&gt; …</text>
+<text x="1105" y="231" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="20" font-weight="600" fill="#205bb2">Decoder Input IDs (&lt;BOS&gt; …)</text>
 <path d="M 1105 247 V 263" fill="none" stroke="#516a79" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
 <rect x="961" y="265" width="288" height="44" rx="8" fill="#e8f0fd" stroke="#b9ceec" stroke-width="1.4"/>
 <text x="1105" y="294" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="600" fill="#205bb2">Token Embedding</text>
@@ -56,7 +56,7 @@
 <path d="M 365 561 V 596" fill="none" stroke="#516a79" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
 <rect x="880" y="436" width="450" height="64" rx="8" fill="#deebff" stroke="#94b5e5" stroke-width="1.4"/>
 <text x="1105" y="466" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="21" font-weight="650" fill="#205bb2">Masked Multi-Head Self-Attention</text>
-<text x="1105" y="489" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="16" font-weight="500" fill="#3c5669">Causal Self-Attention  ·  Causal Mask</text>
+<text x="1105" y="489" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="16" font-weight="500" fill="#3c5669">Causal Self-Attention (Causal Mask)</text>
 <path d="M 1105 500 V 522" fill="none" stroke="#516a79" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
 <rect x="880" y="524" width="450" height="37" rx="8" fill="#fff" stroke="#b5c9e6" stroke-width="1.4"/>
 <text x="1105" y="549.5" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="17" font-weight="600" fill="#132d41">Add &amp; Norm   (Residual Add → LayerNorm)</text>
@@ -101,9 +101,9 @@
 <rect x="958" y="1015" width="294" height="52" rx="8" fill="#205bb2" stroke="#205bb2" stroke-width="1.4"/>
 <text x="1105" y="1048" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="22" font-weight="600" fill="#fff">다음 토큰</text>
 <path d="M 1252 1041 H 1494 V 224 H 1278" fill="none" stroke="#205bb2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#blue)"/>
-<text x="1364" y="1028" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="16" font-weight="650" fill="#205bb2">토큰 추가  ·  ≠ EOS</text>
+<text x="1364" y="1028" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="16" font-weight="650" fill="#205bb2">토큰 추가 (≠ EOS)</text>
 <path d="M 1105 1067 V 1084" fill="none" stroke="#516a79" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#flow)"/>
-<text x="1105" y="1110" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="17" font-weight="650" fill="#132d41">&lt;EOS&gt;  ·  생성 종료</text>
+<text x="1105" y="1110" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="17" font-weight="650" fill="#132d41">&lt;EOS&gt; → 생성 종료</text>
 <rect x="64" y="890" width="642" height="190" rx="10" fill="#f5f6f1" stroke="#cfd8cb" stroke-width="1.4"/>
 <text x="87" y="923" text-anchor="start" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="23" font-weight="700" fill="#132d41">Multi-Head Attention</text>
 <text x="87" y="954" text-anchor="start" font-family="Segoe UI, Malgun Gothic, Arial, sans-serif" font-size="15" font-weight="650" fill="#3c5669">각 헤드</text>
