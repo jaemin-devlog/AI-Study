@@ -6,6 +6,7 @@ AI 학습 과정에서 정리한 개념과 실습 기록이다.
 
 | 주제 | 학습 내용 |
 | --- | --- |
+| [AI 수학](topics/ai-math/README.md) | 예측 함수, 벡터와 행렬, 미분과 역전파 |
 | [Git과 GitHub](topics/git-github/README.md) | 버전 기록, 브랜치와 병합, 원격 저장소, Pull Request |
 | [머신러닝](topics/machine-learning/README.md) | 분류와 회귀, 모델 평가, 앙상블, 비지도 학습 |
 | [딥러닝](topics/deep-learning/README.md) | 신경망 기초와 역전파, CNN, 순차 데이터와 Transformer |
